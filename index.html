@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <head>
+    <title>Slalom</title>
+  </head>
+  <body>
+    <script src="phaser.js"></script>
+    <script>
+      var game = new Phaser.Game(640, 480);
+      var SmallGame = function () {
+
+        this.logo = null;
+
+      };
+
+      SmallGame.prototype = {
+
+        
+
+        preload: function() {
+          this.load.image('skier','../phaser/assets/skier.png');
+        },
+        create: function() {
+          this.player = this.land.create(400, 200, 'skier', 1);
+          this.player.name = 'player';
+          this.player.anchor.set(0.5, 1);
+          this.player.body.setSize(24, 16, 0, -12);
+        },
+        update: function() {
+                                                   
+        }
+      }
+      game.state.add('Game', SmallGame, true);
+      game.state.start('Game')
+
+    </script>
+  </body>
+</html>
+
+
